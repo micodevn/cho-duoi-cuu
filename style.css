@@ -1,0 +1,741 @@
+/*** CSS debug in progress ***/
+
+/* remove line-height on menu items */
+
+:root {
+	--dog: #8e5541;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: radial-gradient(
+		rgb(144 212 147) 0%,
+		rgb(89 181 92) 35%,
+		rgb(65 171 69) 50%,
+		rgb(30 125 34) 100%
+	);
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	font-family: Arial, Helvetica, serif;
+}
+
+.field {
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	top: 0;
+	background: radial-gradient(#1c882080 12%, transparent 18%) 0px 0,
+		radial-gradient(#4caf5080 12%, transparent 18%) 3px 4px,
+		radial-gradient(rgba(255, 255, 255, 0.1) 12%, transparent 23%) 0 1px,
+		radial-gradient(rgba(255, 255, 255, 0.1) 12%, transparent 23%) 2px 3px;
+	background-color: #8bc34a40;
+	background-size: 5px 4px;
+}
+
+/*** SHEEP ***/
+
+.sheep-zone {
+	padding: 5vmin;
+	position: absolute;
+	border-radius: 100%;
+	background: #008e0630;
+	transition: 0.5s;
+	box-shadow: 0 0 15px 0 #008e0630, 0 0 0 0.25vmin #ffffff20 inset;
+	z-index: 1;
+}
+
+.sheep {
+	width: 5vmin;
+	height: 6vmin;
+	border: 1px #f3f3f3 solid;
+	right: 500px;
+	background: #fff;
+	transition: 0.5s;
+	border-radius: 45%;
+	filter: drop-shadow(1px 1px 5px #00000080);
+	animation: sheep-eating 4s 0s infinite alternate;
+}
+
+.sheep:before {
+	content: "";
+	background: radial-gradient(
+			circle at 1.95vmin 1.5vmin,
+			#fff 0.5vmin,
+			transparent 0.65vmin
+		),
+		radial-gradient(circle at 4.5vmin 1.5vmin, #fff 0.55vmin, transparent 0.7vmin),
+		radial-gradient(
+			circle at 1.65vmin 2.15vmin,
+			#fff 0.65vmin,
+			transparent 0.8vmin
+		),
+		radial-gradient(
+			circle at 1.15vmin 2.75vmin,
+			#fff 0.5vmin,
+			transparent 0.65vmin
+		),
+		radial-gradient(
+			circle at 1.15vmin 3.35vmin,
+			#fff 0.6vmin,
+			transparent 0.75vmin
+		),
+		radial-gradient(
+			circle at 1.05vmin 4.35vmin,
+			#fff 0.65vmin,
+			transparent 0.8vmin
+		),
+		radial-gradient(
+			circle at 1.2vmin 5.35vmin,
+			#fff 0.6vmin,
+			transparent 0.75vmin
+		),
+		radial-gradient(
+			circle at 1.5vmin 6.15vmin,
+			#fff 0.55vmin,
+			transparent 0.7vmin
+		),
+		radial-gradient(circle at 1.9vmin 6.8vmin, #fff 0.55vmin, transparent 0.7vmin),
+		radial-gradient(
+			circle at 2.5vmin 7.05vmin,
+			#fff 0.4vmin,
+			transparent 0.55vmin
+		),
+		radial-gradient(
+			circle at 2.95vmin 7.15vmin,
+			#fff 0.45vmin,
+			transparent 0.6vmin
+		),
+		radial-gradient(
+			circle at 3.65vmin 7.25vmin,
+			#fff 0.25vmin,
+			transparent 0.4vmin
+		),
+		radial-gradient(
+			circle at 4.25vmin 7.2vmin,
+			#fff 0.35vmin,
+			transparent 0.5vmin
+		),
+		radial-gradient(
+			circle at 4.85vmin 6.65vmin,
+			#fff 0.55vmin,
+			transparent 0.7vmin
+		),
+		radial-gradient(
+			circle at 5.25vmin 6.15vmin,
+			#fff 0.35vmin,
+			transparent 0.5vmin
+		),
+		radial-gradient(
+			circle at 5.25vmin 1.5vmin,
+			#fff 0.45vmin,
+			transparent 0.6vmin
+		),
+		radial-gradient(
+			circle at 5.5vmin 2.35vmin,
+			#fff 0.5vmin,
+			transparent 0.65vmin
+		),
+		radial-gradient(
+			circle at 6.05vmin 3.25vmin,
+			#fff 0.45vmin,
+			transparent 0.6vmin
+		),
+		radial-gradient(
+			circle at 5.95vmin 4.05vmin,
+			#fff 0.4vmin,
+			transparent 0.55vmin
+		),
+		radial-gradient(
+			circle at 5.75vmin 4.85vmin,
+			#fff 0.5vmin,
+			transparent 0.65vmin
+		),
+		radial-gradient(
+			circle at 5.65vmin 5.75vmin,
+			#fff 0.55vmin,
+			transparent 0.7vmin
+		);
+	width: calc(5vmin + 2vmin);
+	height: calc(6vmin + 2vmin);
+	position: absolute;
+	border-radius: 25%;
+	margin-left: -1vmin;
+	margin-top: -1vmin;
+}
+
+.sheep:after {
+	content: "";
+	background: radial-gradient(
+			circle at 70% 65%,
+			#333 0.2vmin,
+			transparent 0.275vmin
+		),
+		radial-gradient(circle at 30% 65%, #333 0.2vmin, transparent 0.275vmin),
+		#ffdde9 /*efe3d3*/;
+	width: 2.35vmin;
+	height: 2.75vmin;
+	position: absolute;
+	border-radius: 35% 35% 0 0;
+	margin-left: 1.3vmin;
+	margin-top: -2vmin;
+	border-bottom: 1px dashed #fff;
+	clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+}
+
+.sheep-pen {
+	position: absolute;
+	background: radial-gradient(#d6bc97a3 50%, #70bf627d 75%, #6bbc5c9e 80%);
+	width: 45vmin;
+	height: 45vmin;
+	border-radius: 100%;
+	left: calc(50% - 22.5vmin);
+	top: calc(50% - 22.5vmin);
+	border: 5vmin dotted #d6bc97a3;
+	z-index: 0;
+	filter: blur(5px);
+	box-sizing: border-box;
+}
+
+@keyframes sheep-eating {
+	0% {
+		transform: rotate(0deg);
+	}
+	20% {
+		transform: rotate(45deg);
+	}
+	40% {
+		transform: rotate(45eg);
+	}
+	60% {
+		transform: rotate(80deg);
+	}
+	80% {
+		transform: rotate(80deg);
+	}
+	100% {
+		transform: rotate(130deg);
+	}
+}
+
+.sheep-zone:nth-child(2) {
+	transform: rotate(-40deg);
+}
+.sheep-zone:nth-child(3) {
+	transform: rotate(-70deg);
+}
+.sheep-zone:nth-child(4) {
+	transform: rotate(-110deg);
+}
+.sheep-zone:nth-child(5) {
+	transform: rotate(-150deg);
+}
+.sheep-zone:nth-child(6) {
+	transform: rotate(-180deg);
+}
+.sheep-zone:nth-child(7) {
+	transform: rotate(-210deg);
+}
+.sheep-zone:nth-child(8) {
+	transform: rotate(-250deg);
+}
+.sheep-zone:nth-child(9) {
+	transform: rotate(-275deg);
+}
+.sheep-zone:nth-child(10) {
+	transform: rotate(-290deg);
+}
+.sheep-zone:nth-child(11) {
+	transform: rotate(-320deg);
+}
+.sheep-zone:nth-child(12) {
+	transform: rotate(-350deg);
+}
+
+.sheep-zone:nth-child(2) .sheep {
+	animation-duration: 5s;
+}
+.sheep-zone:nth-child(3) .sheep {
+	animation-duration: 4.5s;
+}
+.sheep-zone:nth-child(4) .sheep {
+	animation-duration: 3.5s;
+}
+.sheep-zone:nth-child(5) .sheep {
+	animation-duration: 5.5s;
+}
+.sheep-zone:nth-child(6) .sheep {
+	animation-duration: 6s;
+}
+.sheep-zone:nth-child(7) .sheep {
+	animation-duration: 6.5s;
+}
+.sheep-zone:nth-child(8) .sheep {
+	animation-duration: 7s;
+}
+.sheep-zone:nth-child(9) .sheep {
+	animation-duration: 7.5s;
+}
+.sheep-zone:nth-child(10) .sheep {
+	animation-duration: 8s;
+}
+.sheep-zone:nth-child(11) .sheep {
+	animation-duration: 8.5s;
+}
+.sheep-zone:nth-child(12) .sheep {
+	animation-duration: 9s;
+}
+
+/*** DOG ***/
+
+#dog {
+	width: 3.5vmin;
+	height: 7vmin;
+	background-color: var(--dog);
+	border-radius: 70% 70% 100% 100%;
+	transition-duration: 500ms;
+	transition-timing-function: ease-out;
+	position: fixed;
+	transform-origin: center center;
+	margin-left: -2vmin;
+	margin-top: -3.5vmin;
+	filter: drop-shadow(0px 0px 10px #00000040);
+	left: 65%;
+	top: 75%;
+}
+
+#dog:before {
+	content: "";
+	width: calc(100% - 0.35vmin);
+	height: calc(100% - 0.35vmin);
+	position: absolute;
+	border-radius: 70% 70% 100% 100%;
+	margin-left: -0.175vmin;
+	margin-top: -0.175vmin;
+	border: 0.35vmin dotted var(--dog);
+}
+
+#dog:after {
+	content: "";
+	background: radial-gradient(
+			circle at 70% 65%,
+			#333 0.2vmin,
+			transparent 0.275vmin
+		),
+		radial-gradient(circle at 30% 65%, #333 0.2vmin, transparent 0.275vmin),
+		radial-gradient(circle at 50% 5%, #333 0.25vmin, transparent 0.35vmin),
+		var(--dog);
+	width: 2.35vmin;
+	height: 2.75vmin;
+	position: absolute;
+	border-radius: 2vmin 2vmin 1.5vmin 1.5vmin;
+	margin-left: 0.55vmin;
+	margin-top: -2.5vmin;
+	border-bottom: 0.35vmin dotted #ffffff;
+	animation: pitching 1s 0s infinite alternate;
+	transform-origin: center bottom;
+	clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+
+@keyframes pitching {
+	0% {
+		transform: rotate(-25deg);
+	}
+	50% {
+		transform: rotate(25deg);
+	}
+	100% {
+		transform: rotate(-25deg);
+	}
+}
+
+#dog .dogtail {
+	position: absolute;
+	width: 0.5vmin;
+	height: 3vmin;
+	background-color: var(--dog);
+	left: calc(50% - 0.3vmin);
+	top: 90%;
+	border-radius: 0 0 100% 0;
+	animation: tail 0.65s 0s infinite alternate;
+	transform-origin: center top;
+}
+
+@keyframes tail {
+	0% {
+		transform: rotate(-45deg);
+	}
+	50% {
+		transform: rotate(45deg);
+	}
+	100% {
+		transform: rotate(-45deg);
+	}
+}
+
+#dog .doghead {
+	background: radial-gradient(
+			circle at 70% 65%,
+			#333 0.2vmin,
+			transparent 0.275vmin
+		),
+		radial-gradient(circle at 30% 65%, #333 0.2vmin, transparent 0.275vmin),
+		radial-gradient(circle at 50% 5%, #333 0.25vmin, transparent 0.35vmin),
+		var(--dog);
+	width: 2.35vmin;
+	height: 2.75vmin;
+	position: absolute;
+	border-radius: 2vmin 2vmin 1.5vmin 1.5vmin;
+	margin-left: 0.55vmin;
+	margin-top: -2.5vmin;
+	border-bottom: 0.35vmin dotted #ffffff;
+	animation: pitching 1s 0s infinite alternate;
+	transform-origin: center bottom;
+	clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+
+#dog .doghead:before,
+#dog .doghead:after {
+	content: "";
+}
+
+#dog .dogears {
+	width: 2.35vmin;
+	height: 2.75vmin;
+	position: absolute;
+	margin-left: 0.55vmin;
+	margin-top: -2.5vmin;
+	animation: pitching 1s 0s infinite alternate;
+	transform-origin: center bottom;
+	z-index: 2;
+	border-bottom: 0.35vmin dotted #ffffff00;
+}
+
+#dog .dogears:before,
+#dog .dogears:after {
+	content: "";
+	position: absolute;
+	border: 0.5vmin solid transparent;
+	border-left: 0.75vmin solid var(--dog);
+	left: 2.15vmin;
+	top: 1.65vmin;
+}
+
+#dog .dogears:after {
+	left: -1vmin;
+	transform: rotateZ(180deg);
+}
+
+#dog.left {
+	transform: rotate(-90deg);
+}
+#dog.right {
+	transform: rotate(90deg);
+}
+#dog.top {
+	transform: rotate(0deg);
+}
+#dog.bottom {
+	transform: rotate(180deg);
+}
+
+#dog.top.left {
+	transform: rotate(-45deg);
+}
+#dog.top.right {
+	transform: rotate(45deg);
+}
+#dog.bottom.left {
+	transform: rotate(-135deg);
+}
+#dog.bottom.right {
+	transform: rotate(135deg);
+}
+
+/*** sheep pen ***/
+.sheep-pen:before {
+	content: "";
+	border: 3vmin dotted #d6bc97a3;
+	position: absolute;
+	width: calc(100% + 0vmin);
+	height: calc(100% + 0vmin);
+	border-radius: 100%;
+	left: -3vmin;
+	top: -3vmin;
+}
+.sheep-pen:after {
+	content: "";
+	border: 4vmin dotted #d6bc97a3;
+	border-radius: 100%;
+	left: -5vmin;
+	top: -5vmin;
+	transform: rotate(45deg);
+	filter: blur(5px);
+}
+
+.sheep-zone.scared {
+	background: #ff000080;
+	animation: scared 0.15s 0s infinite alternate;
+}
+
+@keyframes scared {
+	0% {
+		transform: rotate(10deg);
+	}
+	50% {
+		transform: rotate(-10deg);
+	}
+	100% {
+		transform: rotate(10deg);
+	}
+}
+
+.sheep-zone.catched {
+	box-shadow: none;
+	background: radial-gradient(#2196f329 50%, transparent 60%);
+}
+
+.alone {
+	/*background: orange ;*/
+	margin-top: -2vmin;
+	margin-left: 2vmin;
+}
+
+.sheep-zone.alone:nth-child(even) {
+	margin-top: 3vmin;
+}
+
+.sheep-zone.alone:nth-child(3n + 1) {
+	margin-left: 3vmin;
+}
+
+.sheep-zone.alone:nth-child(3n + 4) {
+	margin-left: -3vmin;
+}
+
+.sheep-zone.alone:nth-child(5n) {
+	margin-top: 2vmin;
+}
+
+/*** MENU ***/
+
+.menu {
+	background: #ffffffbb;
+	text-align: center;
+	z-index: 5;
+	position: absolute;
+	cursor: help;
+	transition: opacity 0.5s ease 0s;
+	width: 5vmin;
+	height: 5vmin;
+	right: 1vmin;
+	top: 1vmin;
+	border-radius: 100%;
+	opacity: 0.5;
+	/*text-shadow: -1px 0px 1px #ffffff;*/
+	text-transform: uppercase;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2vmin;
+}
+
+.menu:hover {
+	opacity: 1;
+	transition: opacity 0.5s ease 0s;
+}
+
+.menu:before {
+	content: "";
+	color: #359c39;
+	background: #ffffffbb;
+	position: absolute;
+	padding: 1vmin;
+	top: -30vh;
+	right: 7vmin;
+	transition: top 0.5s ease 0s;
+	line-height: 1.1em;
+	border-radius: 0.25vmin;
+}
+
+.menu:after {
+	content: "";
+	border: 1.25vmin solid transparent;
+	position: absolute;
+	top: -30vh;
+	right: calc(7vmin - 2.35vmin);
+	transition: top 0.5s ease 0s;
+	border-left-color: #ffffffbb;
+	margin-top: 0.75vmin;
+}
+
+.menu:hover:before,
+.menu:hover:after {
+	top: 0.5vmin;
+	transition: top 0.5s ease 0s;
+}
+
+#info {
+	animation: howto-opa 4s 0s 1;
+}
+
+#info:after {
+	animation: howto-mov 4s 0s 1;
+}
+
+#info:before {
+	content: "How to play \2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022  \A \A Group all the sheep inside the central circle. \A  \A Try not to lose any sheep.";
+	min-width: 20vmin;
+	white-space: pre-wrap;
+	animation: howto-mov 4s 0s 1;
+}
+
+@keyframes howto-mov {
+	0% {
+		top: -25vmin;
+	}
+	10% {
+		top: 0.5vmin;
+	}
+	90% {
+		top: 0.5vmin;
+	}
+	100% {
+		top: -25vmin;
+	}
+}
+
+@keyframes howto-opa {
+	0% {
+		opacity: 0.5;
+	}
+	10% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0.5;
+	}
+}
+
+#info span {
+	line-height: 2.25em;
+	color: #1f7f23bb;
+}
+
+#trap {
+	color: #0000ff80;
+	top: 7vmin;
+	line-height: 2.25em;
+}
+
+#trap:before {
+	content: "Trapped ";
+}
+
+#lost {
+	color: #ff000080;
+	top: 13vmin;
+	line-height: 2.25em;
+}
+
+#lost:before {
+	content: "Losses ";
+}
+
+#restart {
+	top: 19vmin;
+}
+
+#restart:before {
+	content: "Restart";
+}
+
+#restart span {
+	width: 1.25vmin;
+	height: 1.25vmin;
+	border: 0.35vmin solid #673ab780;
+	position: absolute;
+	border-radius: 100%;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	left: 1.5vmin;
+	top: 1.5vmin;
+	transform: rotate(0deg);
+	transition: all 0.5s ease 0s;
+}
+
+#restart span:before,
+#restart span:after {
+	content: "";
+	border: 0.45vmin solid transparent;
+	position: absolute;
+	border-left: 0.6vmin solid #673ab780;
+	transform: rotate(45deg) translateX(0.45vmin) translateY(-0.3vmin);
+}
+
+#restart span:after {
+	transform: rotate(-135deg) translateX(0.75vmin) translateY(-1.3vmin);
+}
+
+#restart:hover span {
+	transform: rotate(359deg);
+	transition: all 0.5s ease 0s;
+}
+
+#restart a {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	border-radius: 100%;
+}
+
+.menu.end {
+	opacity: 1;
+}
+.menu.end:before,
+.menu.end:after {
+	top: 0.5vmin;
+}
+
+#info.end:before {
+	content: "GAME OVER";
+	min-width: 6.25em;
+}
+
+#restart.end:before {
+	content: "PLAY AGAIN";
+	min-width: 6.25em;
+}
+
+.menu.show {
+	opacity: 1;
+}
+.menu.show:before,
+.menu.show:after {
+	top: 0.5vh;
+}
+
+#msg {
+	background: radial-gradient(#000000, transparent);
+	height: 100vh;
+	position: absolute;
+	width: 100vw;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	color: #ffffff;
+	font-size: 2em;
+	opacity: 0;
+	z-index: 1;
+}
